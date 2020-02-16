@@ -13,6 +13,8 @@ class Motor:
         self.pwm = GPIO.PWM(pin_pwm, 1000)
 
     def work(self, direction, speed):
+        if speed > 0 and speed < 10:
+            speed = 10
         if direction == 'forward':
             GPIO.output(self.pin_1, GPIO.HIGH)
             GPIO.output(self.pin_2, GPIO.LOW)

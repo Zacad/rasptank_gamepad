@@ -10,7 +10,7 @@ class RaspTank:
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         self.motor_left = Motor(motor_left['pwm'], motor_left['pin1'], motor_left['pin2'])
-        self.motor_right = Motor(motor_right['pwm'], motor_left['pin1'], motor_left['pin2'])
+        self.motor_right = Motor(motor_right['pwm'], motor_right['pin1'], motor_right['pin2'])
         self.thrust = 0
         self.turn = 0
 

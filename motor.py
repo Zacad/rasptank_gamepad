@@ -14,8 +14,8 @@ class Motor:
         self.stop()
 
     def work(self, direction, speed):
-        if speed > 0 and speed < 10:
-            speed = 10
+        if speed > 0 and speed < 30:
+            speed = 30
         if direction == 'forward':
             GPIO.output(self.pin_1, GPIO.HIGH)
             GPIO.output(self.pin_2, GPIO.LOW)

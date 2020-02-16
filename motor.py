@@ -7,7 +7,7 @@ class Motor:
         GPIO.setup(pin_pwm, GPIO.OUT)
         self.pin_pwm = pin_pwm
         self.pin_1 = pin1
-        self.pin_2 - pin2
+        self.pin_2 = pin2
         self.pwm = GPIO.PWM(pin_pwm, 1000)
 
     def work(self, direction, speed):

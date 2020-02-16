@@ -39,6 +39,6 @@ class RaspTank:
         pass
 
     event_map = {
-        'ABS_RZ': drive_forward(),
-        'ABS_Z': drive_backward()
+        'ABS_RZ': drive_forward,
+        'ABS_Z': drive_backward
     }

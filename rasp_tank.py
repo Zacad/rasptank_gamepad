@@ -15,7 +15,7 @@ class RaspTank:
         self.turn = 0
 
     def handle_event(self, event):
-        self.event_map[event.code](event.state)
+        self.event_map[event.code](self, event.state)
 
     def drive(self, direction, thrust):
         self.motor_left.work(direction, thrust)

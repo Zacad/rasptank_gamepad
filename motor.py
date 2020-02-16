@@ -11,6 +11,7 @@ class Motor:
         self.pin_1 = pin1
         self.pin_2 = pin2
         self.pwm = GPIO.PWM(pin_pwm, 1000)
+        self.stop()
 
     def work(self, direction, speed):
         if speed > 0 and speed < 10:

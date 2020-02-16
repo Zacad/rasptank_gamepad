@@ -25,4 +25,5 @@ while True:
             continue
         #print(event.ev_type, event.code, event.state)
         event = gamepad.handle_event(event)
+        print(event)
         RaspTank.handle_event(event)

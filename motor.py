@@ -2,6 +2,8 @@ import RPi.GPIO as GPIO
 
 class Motor:
     def __init__(self, pin_pwm, pin1, pin2):
+        GPIO.setwarnings(False)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin1, GPIO.OUT)
         GPIO.setup(pin2, GPIO.OUT)
         GPIO.setup(pin_pwm, GPIO.OUT)
@@ -21,6 +23,7 @@ class Motor:
             GPIO.output(self.pin_2, GPIO.HIGH)
             self.pwm.start(0)
             self.pwm.ChangeDutyCycle(speed)
+        print(speed)
 
     def stop(self):
         GPIO.output(self.pin_1, GPIO.LOW)

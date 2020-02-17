@@ -23,13 +23,15 @@ class RaspTank:
         # slow down one motor on turn
         print('turn', self.turn_value)
         if self.turn_value > 0:
-            self.motor_left.work(direction, abs(round(thrust*(1-self.turn_value))))
+            turn = abs(self.turn_value)
+            self.motor_left.work(direction, round(thrust*(1-turn)))
             self.motor_right.work(direction, thrust)
             return None;
 
         if self.turn_value < 0:
+            turn = abs(self.turn_value)
             self.motor_left.work(direction, thrust)
-            self.motor_right.work(direction, abs(round(thrust*(1-self.turn_value))))
+            self.motor_right.work(direction, round(thrust*(1-turn)))
             return None;
 
         self.motor_left.work(direction, thrust)

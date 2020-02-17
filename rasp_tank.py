@@ -48,7 +48,7 @@ class RaspTank:
         self.turn_value = value
         self.drive(self.direction, self.thrust)
 
-    def stop(self):
+    def stop(self, value):
         pass
 
     def move_arm_1(self, value):

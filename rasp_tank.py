@@ -17,7 +17,7 @@ class RaspTank:
 
     def handle_event(self, event):
         # self.event_map[event.code](self, event.state)
-        self.event_map.get(event.code, 'anything')(self, event.state)
+        self.event_map.get(event.code, RaspTank.stop)(self, event.state)
 
     def drive(self, direction, thrust):
         # slow down one motor on turn

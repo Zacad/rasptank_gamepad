@@ -21,6 +21,7 @@ class RaspTank:
 
     def drive(self, direction, thrust):
         # slow down one motor on turn
+        print(self.turn_value)
         if self.turn_value > 0:
             self.motor_left.work(direction, abs(round(thrust*(1-self.turn_value))))
             self.motor_right.work(direction, thrust)

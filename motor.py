@@ -14,13 +14,24 @@ class Motor:
         self.stop()
 
     def work(self, direction, speed):
-        if speed > 0 and speed < 60:
+        # zero is minimum speed
+        if speed < 0:
+            speed = 0
+
+        # 100 is maximum speed
+        if speed > 100:
+            speed = 100
+
+        # below 60 the current is too small to power motor
+        if 0 < speed < 60:
             speed = 60
+
         if direction == 'forward':
             GPIO.output(self.pin_1, GPIO.HIGH)
             GPIO.output(self.pin_2, GPIO.LOW)
             self.pwm.start(0)
             self.pwm.ChangeDutyCycle(speed)
+
         if direction == 'backward':
             GPIO.output(self.pin_1, GPIO.LOW)
             GPIO.output(self.pin_2, GPIO.HIGH)

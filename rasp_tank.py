@@ -16,18 +16,19 @@ class RaspTank:
         self.turn_value = 0
 
     def handle_event(self, event):
-        #self.event_map[event.code](self, event.state)
+        # self.event_map[event.code](self, event.state)
         self.event_map.get(event.code, 'anything')(self, event.state)
 
     def drive(self, direction, thrust):
+        # slow down one motor on turn
         if self.turn_value > 0:
-            self.motor_left.work(direction, abs(round(thrust*self.turn_value)))
+            self.motor_left.work(direction, abs(round(thrust*(1-self.turn_value))))
             self.motor_right.work(direction, thrust)
             return None;
 
         if self.turn_value < 0:
             self.motor_left.work(direction, thrust)
-            self.motor_right.work(direction, abs(round(thrust*self.turn_value)))
+            self.motor_right.work(direction, abs(round(thrust*(1-self.turn_value))))
             return None;
 
         self.motor_left.work(direction, thrust)

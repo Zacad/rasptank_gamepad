@@ -61,13 +61,14 @@ class RaspTank:
         pass
 
     def move_arm_1(self, value):
-        print(self.servos['arm1'])
+        #print(self.servos['arm1'])
         range = self.servos['arm1'].max - self.servos['arm1'].min
         servo_value = self.servo_default + round(range*value)
+        print(servo_value)
         self.servos['arm1'].move(servo_value)
 
     def move_arm_2(self, value):
-        print(self.servos['arm1'])
+        #print(self.servos['arm1'])
         self.servos['arm1'].move(500)
 
     event_map = {

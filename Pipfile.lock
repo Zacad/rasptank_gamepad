@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4cee1e3a960b40d6b8f53c388fd56ccf23a83d1f9c5616475eebdeae5db62037"
+            "sha256": "55f9c346929b20544a450109b576a388fa721c5d539068401d7abe45b23d7336"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -14,6 +14,26 @@
         ]
     },
     "default": {
+        "adafruit-gpio": {
+            "hashes": [
+                "sha256:d6465b92c866c51ca8f3bc1e8f2ec36f5ccdb46d0fd54101c1109756d4a2dcd0"
+            ],
+            "version": "==1.0.3"
+        },
+        "adafruit-pca9685": {
+            "hashes": [
+                "sha256:24d632c912a23f44416369555f3f39f2509975b89d37955f125bc009040a1dfd",
+                "sha256:24d9c8c1fd17093d3255823c5b43f7dccd0b95a042d663832af473507f188ea9"
+            ],
+            "index": "pypi",
+            "version": "==1.0.1"
+        },
+        "adafruit-pureio": {
+            "hashes": [
+                "sha256:b67587ed3c4dc90bd0e9b988587efa66b4466abf71eb0dcbcd4695e7e4350326"
+            ],
+            "version": "==1.0.4"
+        },
         "inputs": {
             "hashes": [
                 "sha256:13f894564e52134cf1e3862b1811da034875eb1f2b62e6021e3776e9669a96ec",
@@ -21,6 +41,12 @@
             ],
             "index": "pypi",
             "version": "==0.5"
+        },
+        "spidev": {
+            "hashes": [
+                "sha256:4314e52f573d95233c907f307558893313a8a606e197e77bb711526b0e179e80"
+            ],
+            "version": "==3.4"
         }
     },
     "develop": {}

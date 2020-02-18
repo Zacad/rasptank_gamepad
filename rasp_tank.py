@@ -18,7 +18,7 @@ class RaspTank:
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0
-        self.pwm.set_all_pwm(0, 300)
+        self.pwm.set_all_pwm(0, 400)
 
     def handle_event(self, event):
         # self.event_map[event.code](self, event.state)

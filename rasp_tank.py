@@ -61,7 +61,9 @@ class RaspTank:
 
     def move_arm_1(self, value):
         print(self.servos['arm1'])
-        self.servos['arm1'].move(200)
+        range = self.servos['arm1'].max - self.servos['arm1'].min
+        servo_value = self.servos['arm1'].min + round(range*value)
+        self.servos['arm1'].move(servo_value)
 
     def move_arm_2(self, value):
         print(self.servos['arm1'])
@@ -71,7 +73,6 @@ class RaspTank:
         'ABS_RZ': drive_forward,
         'ABS_Z': drive_backward,
         'ABS_X': turn,
-        'BTN_WEST': move_arm_1,
-        'BTN_NORTH': move_arm_2,
+        'ABS_RX': move_arm_1,
         'anything': stop
     }

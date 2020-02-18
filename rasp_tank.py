@@ -14,7 +14,7 @@ class RaspTank:
         self.pwm.set_pwm_freq(50)
         self.motor_left = Motor(motor_left['pwm'], motor_left['pin1'], motor_left['pin2'])
         self.motor_right = Motor(motor_right['pwm'], motor_right['pin2'], motor_right['pin1'])
-        self.servos = {name: Servo(self.pwm, servo['channel'], servo['max'], servo['min']) for (name, servo) in servos.items()}
+        self.servos = {name: Servo(self.pwm, servo['channel'], servo['max'], servo['min'], self.servo_default) for (name, servo) in servos.items()}
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0
@@ -61,10 +61,7 @@ class RaspTank:
         pass
 
     def move_arm_1(self, value):
-        #print(self.servos['arm1'])
-        range = self.servos['arm1'].max - self.servos['arm1'].min
-        servo_value = self.servo_default + round(range*value)
-        #print(servo_value)
+        servo_value = 1 if value > 0 else -1
         self.servos['arm1'].move(servo_value)
 
     def move_arm_2(self, value):

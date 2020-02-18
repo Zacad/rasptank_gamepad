@@ -21,7 +21,6 @@ class RaspTank:
         self.direction = 'forward'
         self.turn_value = 0
         self.pwm.set_all_pwm(0, self.servo_default)
-        print(self.servos_last_change)
 
     def handle_event(self, event):
         # self.event_map[event.code](self, event.state)
@@ -68,7 +67,7 @@ class RaspTank:
             self.servos['arm1'].move(servo_value)
         if value < 0 and (self.servos_last_change['arm1'] > value):
             self.servos['arm1'].move(servo_value)
-        self.servos_last_change = value
+        self.servos_last_change['arm1'] = value
 
     def move_arm_2(self, value):
         self.servos['arm1'].move(200)

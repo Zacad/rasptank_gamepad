@@ -12,6 +12,7 @@ class RaspTank:
         GPIO.setmode(GPIO.BCM)
         self.pwm = Adafruit_PCA9685.PCA9685()
         self.pwm.set_pwm_freq(50)
+        self.pwm.set_all_pwm(0,0)
         self.motor_left = Motor(motor_left['pwm'], motor_left['pin1'], motor_left['pin2'])
         self.motor_right = Motor(motor_right['pwm'], motor_right['pin2'], motor_right['pin1'])
         self.servos = {name: Servo(self.pwm, servo['channel'], servo['max'], servo['min']) for (name, servo) in servos.items()}
@@ -62,10 +63,15 @@ class RaspTank:
         print(self.servos['arm1'])
         self.servos['arm1'].move(300)
 
+    def move_arm_2(self, value):
+        print(self.servos['arm1'])
+        self.servos['arm1'].move(430)
+
     event_map = {
         'ABS_RZ': drive_forward,
         'ABS_Z': drive_backward,
         'ABS_X': turn,
         'BTN_WEST': move_arm_1,
+        'BTN_NORTH': move_arm_2,
         'anything': stop
     }

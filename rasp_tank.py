@@ -16,6 +16,7 @@ class RaspTank:
         self.motor_right = Motor(motor_right['pwm'], motor_right['pin2'], motor_right['pin1'])
         self.servo_default = 300
         self.servos = {name: Servo(self.pwm, servo['channel'], servo['max'], servo['min'], self.servo_default) for (name, servo) in servos.items()}
+        self.servos_last_change = {name: 0 for name in servos}
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0
@@ -61,8 +62,12 @@ class RaspTank:
         pass
 
     def move_arm_1(self, value):
-        servo_value = 1 if value > 0 else -1
-        self.servos['arm1'].move(servo_value)
+        servo_value = 1
+        if value > 0 and self.servos_last_change['arm1'] < value:
+            self.servos['arm1'].move(servo_value)
+        if value < 0 and self.servos_last_change['arm1'] > value:
+            self.servos['arm1'].move(servo_value)
+        self.servos_last_change = value
 
     def move_arm_2(self, value):
         self.servos['arm1'].move(200)

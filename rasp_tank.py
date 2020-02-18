@@ -75,6 +75,6 @@ class RaspTank:
         'ABS_RZ': drive_forward,
         'ABS_Z': drive_backward,
         'ABS_X': turn,
-        'ABS_RX': move_arm_1,
+        'ABS_RY': move_arm_1,
         'anything': stop
     }

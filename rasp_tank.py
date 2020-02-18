@@ -67,11 +67,15 @@ class RaspTank:
         print(servo_value)
         self.servos['arm1'].move(servo_value)
 
+    def move_arm_2(self, value):
+        self.servo_default['arm1'].move(200)
+
 
     event_map = {
         'ABS_RZ': drive_forward,
         'ABS_Z': drive_backward,
         'ABS_X': turn,
         'ABS_RY': move_arm_1,
+        'BTN_NORTH': move_arm_2,
         'anything': stop
     }

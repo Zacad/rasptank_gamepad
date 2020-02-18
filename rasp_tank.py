@@ -14,11 +14,11 @@ class RaspTank:
         self.pwm.set_pwm_freq(50)
         self.motor_left = Motor(motor_left['pwm'], motor_left['pin1'], motor_left['pin2'])
         self.motor_right = Motor(motor_right['pwm'], motor_right['pin2'], motor_right['pin1'])
+        self.servo_default = 300
         self.servos = {name: Servo(self.pwm, servo['channel'], servo['max'], servo['min'], self.servo_default) for (name, servo) in servos.items()}
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0
-        self.servo_default = 300
         self.pwm.set_all_pwm(0, self.servo_default)
 
     def handle_event(self, event):

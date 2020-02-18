@@ -64,7 +64,7 @@ class RaspTank:
         #print(self.servos['arm1'])
         range = self.servos['arm1'].max - self.servos['arm1'].min
         servo_value = self.servo_default + round(range*value)
-        print(servo_value)
+        #print(servo_value)
         self.servos['arm1'].move(200)
 
     def move_arm_2(self, value):

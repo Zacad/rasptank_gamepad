@@ -10,4 +10,4 @@ class Servo:
         self.pwm.set_pwm(self.channel, 0, pos)
 
     def __str__(self):
-        return str(self.pwm)+', '+self.channel+', '+self.max+', '+self.min
+        return str(self.pwm)+', '+str(self.channel)+', '+str(self.max)+', '+str(self.min)

@@ -6,7 +6,6 @@ import Adafruit_PCA9685
 class RaspTank:
 
     MAX_DUTY_CYCLE = 100
-    pwm = Adafruit_PCA9685.PCA9685()
 
     def __init__(self, motor_left, motor_right, servos):
         GPIO.setwarnings(False)
@@ -17,6 +16,8 @@ class RaspTank:
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0
+        self.pwm = Adafruit_PCA9685.PCA9685()
+        self.pwm.set_pwm_freq(50)
 
     def handle_event(self, event):
         # self.event_map[event.code](self, event.state)

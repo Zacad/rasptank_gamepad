@@ -19,6 +19,7 @@ class RaspTank:
         self.direction = 'forward'
         self.turn_value = 0
         self.servo_default = 300
+        self.pwm.set_all_pwm(0, 0)
         self.pwm.set_all_pwm(0, self.servo_default)
 
     def handle_event(self, event):

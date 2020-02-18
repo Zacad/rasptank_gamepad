@@ -20,7 +20,7 @@ servos = {
     'arm1': {
         'channel': 12,
         'min': 430,
-        'max': 300
+        'max': 100
     },
     'arm2': {
         'channel': 13,

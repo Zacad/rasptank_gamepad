@@ -6,7 +6,10 @@ class Servo:
         self.min = min_pos
 
     def move(self, pos):
-        print('move')
+        if pos > self.max:
+            pos = self.max
+        if pos < self.min:
+            pos = self.min
         self.pwm.set_pwm(self.channel, 0, pos)
 
     def __str__(self):

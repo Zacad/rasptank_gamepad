@@ -18,7 +18,8 @@ class RaspTank:
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0
-        self.pwm.set_all_pwm(0, 300)
+        self.servo_default = 300
+        self.pwm.set_all_pwm(0, self.servo_default)
 
     def handle_event(self, event):
         # self.event_map[event.code](self, event.state)
@@ -62,7 +63,7 @@ class RaspTank:
     def move_arm_1(self, value):
         print(self.servos['arm1'])
         range = self.servos['arm1'].max - self.servos['arm1'].min
-        servo_value = self.servos['arm1'].min + round(range*value)
+        servo_value = self.servo_default + round(range*value)
         self.servos['arm1'].move(servo_value)
 
     def move_arm_2(self, value):

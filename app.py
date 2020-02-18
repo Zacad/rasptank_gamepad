@@ -21,7 +21,22 @@ servos = {
         'channel': 12,
         'min': 430,
         'max': 300
-    }
+    },
+    'arm2': {
+        'channel': 13,
+        'min': 430,
+        'max': 300
+    },
+    'arm3': {
+        'channel': 14,
+        'min': 430,
+        'max': 300
+    },
+    'arm4': {
+        'channel': 15,
+        'min': 430,
+        'max': 300
+    },
 }
 
 tank = RaspTank(motor_left, motor_right, servos)

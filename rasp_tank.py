@@ -61,11 +61,11 @@ class RaspTank:
 
     def move_arm_1(self, value):
         print(self.servos['arm1'])
-        self.servos['arm1'].move(100)
+        self.servos['arm1'].move(200)
 
     def move_arm_2(self, value):
         print(self.servos['arm1'])
-        self.servos['arm1'].move(430)
+        self.servos['arm1'].move(500)
 
     event_map = {
         'ABS_RZ': drive_forward,

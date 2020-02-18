@@ -1,3 +1,5 @@
+import time
+
 class Servo:
     def __init__(self, pwm, channel, max_pos, min_pos):
         self.pwm = pwm
@@ -6,6 +8,7 @@ class Servo:
         self.min = min_pos
 
     def move(self, pos):
+        time.sleep(0.01)
         if pos > self.max:
             pos = self.max
         if pos < self.min:

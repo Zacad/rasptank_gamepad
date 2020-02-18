@@ -12,7 +12,6 @@ class Servo:
             pos = self.max
         if pos < self.min:
             pos = self.min
-        print('pos', pos)
         self.pwm.set_pwm(self.channel, 0, pos)
 
     def __str__(self):

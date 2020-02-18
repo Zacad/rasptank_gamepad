@@ -19,13 +19,13 @@ motor_right = {
 servos = {
     'arm1': {
         'channel': 12,
-        'min': 430,
-        'max': 100
+        'min': 100,
+        'max': 430
     },
     'arm2': {
         'channel': 13,
-        'min': 430,
-        'max': 300
+        'min': 100,
+        'max': 430
     },
     'arm3': {
         'channel': 14,

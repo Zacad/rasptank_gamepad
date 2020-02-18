@@ -1,16 +1,19 @@
 from motor import Motor
+from servo import Servo
 import RPi.GPIO as GPIO
-
+import Adafruit_PCA9685
 
 class RaspTank:
 
     MAX_DUTY_CYCLE = 100
+    pwm = Adafruit_PCA9685.PCA9685()
 
-    def __init__(self, motor_left, motor_right):
+    def __init__(self, motor_left, motor_right, servos):
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         self.motor_left = Motor(motor_left['pwm'], motor_left['pin1'], motor_left['pin2'])
         self.motor_right = Motor(motor_right['pwm'], motor_right['pin2'], motor_right['pin1'])
+        self.servos = {name: Servo(RaspTank.pwm, servo['channel'], servo['max'], servo['min']) for (name, servo) in servos.items()}
         self.thrust = 0
         self.direction = 'forward'
         self.turn_value = 0

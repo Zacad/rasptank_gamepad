@@ -16,7 +16,15 @@ motor_right = {
     'pin2': 18
 }
 
-tank = RaspTank(motor_left, motor_right)
+servos = {
+    'arm1': {
+        'channel': 12,
+        'min': 430,
+        'max': 300
+    }
+}
+
+tank = RaspTank(motor_left, motor_right, servos)
 
 while True:
     events = get_gamepad()

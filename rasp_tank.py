@@ -92,5 +92,6 @@ class RaspTank:
         'ABS_X': turn,
         'ABS_RY': move_arm_1,
         'ABS_RX': move_arm_2,
+        'ABS_HAT0X': move_arm_3,
         'anything': stop
     }

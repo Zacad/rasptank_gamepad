@@ -46,7 +46,5 @@ while True:
     for event in events:
         if event.ev_type == 'Sync':
             continue
-        #print(event.ev_type, event.code, event.state)
         event = gamepad.handle_event(event)
-        print(event)
         tank.handle_event(event)

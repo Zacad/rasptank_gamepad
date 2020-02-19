@@ -29,8 +29,8 @@ servos = {
     },
     'arm3': {
         'channel': 14,
-        'min': 430,
-        'max': 300
+        'min': 100,
+        'max': 500
     },
     'arm4': {
         'channel': 15,

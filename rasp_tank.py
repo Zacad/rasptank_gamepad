@@ -62,7 +62,7 @@ class RaspTank:
         pass
 
     def move_arm_1(self, value):
-        servo_value = 0 if value == 0 else (-4 if value > 0 else 4)
+        servo_value = 0 if value == 0 else (-3 if value > 0 else 3)
         if value > 0 and (self.servos_last_change['arm1'] < value):
             self.servos['arm1'].move(servo_value)
         if value < 0 and (self.servos_last_change['arm1'] > value):
@@ -70,7 +70,7 @@ class RaspTank:
         self.servos_last_change['arm1'] = value
 
     def move_arm_2(self, value):
-        servo_value = 0 if value == 0 else (-4 if value > 0 else 4)
+        servo_value = 0 if value == 0 else (-3 if value > 0 else 3)
         if value > 0 and (self.servos_last_change['arm2'] < value):
             self.servos['arm2'].move(servo_value)
         if value < 0 and (self.servos_last_change['arm2'] > value):

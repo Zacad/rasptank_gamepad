@@ -35,7 +35,7 @@ servos = {
     'arm4': {
         'channel': 15,
         'min': 100,
-        'max': 400
+        'max': 300
     },
 }
 
